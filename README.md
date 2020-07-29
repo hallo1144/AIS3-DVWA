@@ -21,6 +21,21 @@
 }
 ```
 
+# session options
+之後應該會換成JWT
+```
+{
+    "key": "PHPSESSID",
+    "secret": "sgSJdfgbSnbBVFS",
+    "resave": false,
+    "saveUninitialized": true,
+    "cookie": {
+		"httpOnly": true,
+        "maxAge": 3600000
+    }
+}
+```
+
 
 # Holes
 - [x] XSS

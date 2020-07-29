@@ -1,0 +1,66 @@
+html {
+    background-color: #2A2C2E;
+  }
+  
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+#Register_root_container{
+    margin-top: 12vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#Register_form_container{
+    display: flex;
+}
+
+#Register_row{
+    display: flex;
+    align-items: center;
+}
+
+#Register_login_text_container{
+    margin-right: 25px;
+}
+
+#Register_login_text{
+    font-family: 'Pacifico', cursive;
+    color: rgb(245, 213, 31);
+    font-size: 60px;
+}
+
+#Register_label_text{
+    color:white;
+    font-family: 'cwTeXYen';
+    font-size: 24px;
+}
+
+#Register_textfield_container{
+    /* margin-top: 15px; */
+    margin-left: 10px;
+}
+
+#Register_textfield{
+    font-size: 24px;
+    width: 100%;
+    font-family: 'Papyrus','Arial';
+    background-color: white;
+}
+
+#Register_file_upload_container{
+    margin-left: 25px;
+    width: 15vw;
+}
+
+#Register_button_container{
+    text-align: right;
+    margin-top: 15px;
+}
+
+#Register_submit_button{
+    font-size: 20px;
+    background-color: rgb(194, 196, 52);
+}

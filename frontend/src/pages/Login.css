@@ -1,0 +1,53 @@
+html {
+    background-color: #2A2C2E;
+  }
+  
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+#Login_form_container{
+    margin-top: 12vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#Login_row{
+    display: flex;
+    align-items: center;
+}
+
+#Login_login_text_container{
+    margin-right: 25px;
+}
+
+#Login_login_text{
+    font-family: 'Pacifico', cursive;
+    color: rgb(31, 231, 245);
+    font-size: 60px;
+}
+
+#Login_label_text{
+    color:white;
+    font-family: 'cwTeXYen';
+    font-size: 24px;
+}
+
+#Login_textfield_container{
+    margin-left: 10px;
+}
+
+#Login_textfield{
+    font-size: 24px;
+    font-family: 'Papyrus','Arial';
+    background-color: white;
+}
+
+#Login_button_container{
+    text-align: right;
+}
+
+#Login_button{
+    font-size: 20px;
+    background-color: rgb(194, 196, 52);
+}

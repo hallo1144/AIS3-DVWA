@@ -1,0 +1,62 @@
+html {
+  background-color: #2A2C2E;
+}
+
+#Home_container{
+  display: flex;
+  margin-top: 15vw;
+  width: 100%;
+  justify-content: center;
+}
+
+#Home_content{
+  margin-left: 10vw;
+}
+
+#Home_content_title{
+  position: relative;
+  text-align: center;
+  font-size: 48px;
+  font-family: 'Papyrus','Arial';
+  color: rgb(233, 202, 145);
+}
+
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+
+#Home_content_context{
+  position: relative;
+  /* margin-top: -1%; */
+  text-align: left;
+  font-size: 24px;
+  font-family: 'cwTeXYen';
+  color: white;
+}
+
+#Home_image{
+  overflow: hidden;
+}
+
+#Home_image_column{
+  float:left;
+  /* position: relative; */
+  /* left:25%; */
+  color:white;
+  font-size:20px;
+  font-weight:500;
+}
+
+#Home_image_name{
+  margin:0;
+  text-align: center;
+  font-size: larger;
+  font-family: 'DFKai-SB','STKaiti';
+  color: rgb(152, 202, 214);
+}
+
+#Home_image_id{
+  margin:0;
+  text-align: center;
+  font-size: larger;
+  font-family: 'Papyrus','Arial';
+  color: rgb(152, 202, 214);
+}

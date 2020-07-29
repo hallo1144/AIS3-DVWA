@@ -1,0 +1,87 @@
+html {
+    background-color: #2A2C2E;
+    /* background-color: #ffffff; */
+}
+
+@import url("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+
+#Message_container{
+    display: flex;
+    margin-top: 10vw;
+    width: 100%;
+    justify-content: center;
+}
+
+#Message_logo_container{
+    margin-right: 20px;
+    margin-top: 5vw;
+}
+
+#Message_logo_text{
+    font-family: 'Pacifico', cursive;
+    color: rgb(31, 231, 245);
+    font-size: 60px;
+}
+
+#Message_messages_container{
+    margin-bottom: 10px;
+}
+
+#Message_messages_column{
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: wrap-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#Message_messages_column_left_container{
+    display: flex;
+    align-items: center;
+}
+
+#Message_messages_column_image_container{
+    width: 80px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#Message_messages_column_image{
+    max-width: 80px;
+    max-height: 80px;
+}
+
+#Message_messages_column_title_delete_button{
+    margin-right: 5px;
+}
+
+#Messages_message_username{
+    font-size: 30px;
+    font-family: 'Papyrus','Arial';
+}
+
+#Messages_message_text{
+    font-size: 20px;
+    font-family: 'Papyrus','Arial';
+}
+
+#Message_message_box_send_container{
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+}
+
+#Message_message_box_send_textfield_container{
+    background-color: white;
+    width: max-content;
+    /* margin-right: 10px; */
+    display: flex;
+    justify-content: center;
+}

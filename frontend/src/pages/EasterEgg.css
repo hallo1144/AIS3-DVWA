@@ -1,0 +1,11 @@
+html {
+    background-color: #2A2C2E;
+}
+
+#pic{
+    display: flex;
+    justify-content: center;
+    margin-top: 8vw;
+    height: 100%;
+    width: 100%;
+}

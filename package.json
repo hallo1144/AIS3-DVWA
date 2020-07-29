@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "backend": "npm start",
+    "frontend": "export DANGEROUSLY_DISABLE_HOST_CHECK=true; npm start --prefix frontend",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "merge": "npm run build --prefix frontend; npm start"
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.1.7-alpha.1",
+    "express-mysql-session": "^2.1.4",
+    "http-errors": "~1.6.3",
+    "image-type": "^4.1.0",
+    "is-image": "^3.0.0",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "shortid": "^2.2.15"
+  }
+}

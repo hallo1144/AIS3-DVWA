@@ -7,3 +7,11 @@ p {
     color: white;
     text-align: center;
 }
+
+table img {
+    max-height: 1.5em;
+}
+
+table img:hover {
+    max-height: 20em;
+}

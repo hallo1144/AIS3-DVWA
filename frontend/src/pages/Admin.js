@@ -45,6 +45,7 @@ class Admin extends Component{
                         <Table aria-label="simple table">
                         <TableHead>
                             <TableRow>
+                                <TableCell>Avatar</TableCell>
                                 <TableCell>Username</TableCell>
                                 <TableCell>Visit Time</TableCell>
                             </TableRow>
@@ -52,6 +53,7 @@ class Admin extends Component{
                         <TableBody>
                             {this.state.userList.map((user) => (
                             <TableRow key={user.username}>
+                                <TableCell><img src={'/api/image/' + user["img"]} alt="ERROR" /></TableCell>
                                 <TableCell>{user["username"]}</TableCell>
                                 <TableCell>{user["visit_time"]}</TableCell>
                             </TableRow>

@@ -13,7 +13,8 @@ module.exports = function(req, res) {
                     for (let row of obj) {
                         userList.push({
                             "username": row["username"],
-                            "visit_time": row["visit_time"]
+                            "visit_time": row["visit_time"],
+                            "img": row["picture_name"]
                         });
                     }
                 }

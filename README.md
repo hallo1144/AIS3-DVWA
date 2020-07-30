@@ -10,6 +10,11 @@
 # run
 > npm run dev
 
+# docker
+
+```
+sudo docker-compose up --build -d
+```
 # db options
 ```
 {

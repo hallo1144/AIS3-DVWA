@@ -7,6 +7,7 @@ import Logout from "./pages/Logout";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Message from "./pages/Message";
+import Admin from "./pages/Admin";
 import Null from "./pages/Null";
 
 const Home_page = () => {
@@ -30,8 +31,11 @@ const Message_page = () => {
 const Logout_page = () => {
     return <Logout/>;
 };
+const Admin_page = () => {
+    return <Admin />;
+};
 const Null_page = () => {
     return <Null />;
 };
 
-export { Home_page, Easter_egg, Login_page, Register_page, Profile_page, Message_page, Logout_page, Null_page };
+export { Home_page, Easter_egg, Login_page, Register_page, Profile_page, Message_page, Logout_page, Admin_page, Null_page };

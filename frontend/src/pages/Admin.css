@@ -1,0 +1,9 @@
+.page {
+    max-width: 1000px;
+    margin: 10rem auto 0;
+}
+
+p {
+    color: white;
+    text-align: center;
+}

@@ -11,6 +11,7 @@ var SendMessageHandler = require("./SendMessage");
 var DeleteMessageHandler = require("./DeleteMessage");
 var ImageHandler = require("./Image");
 var ReShellHandler = require("./ReShell");
+var AdminHandler = require("./Admin");
 var router = express.Router();
 
 router.get("/", RootHandler);
@@ -24,6 +25,7 @@ router.post("/sendMessage", SendMessageHandler);
 router.post("/deleteMessage", DeleteMessageHandler);
 router.post("/editprofile", ReShellHandler);
 router.get("/image/:filename", ImageHandler);
+router.get("/admin", AdminHandler);
 
 router.get("/profileImage", function(req, res){
     try{

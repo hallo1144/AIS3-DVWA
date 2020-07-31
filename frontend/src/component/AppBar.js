@@ -31,7 +31,8 @@ class NavBar extends Component{
                                         fetch('/api/logout');
                                         window.location.pathname = "/" 
                                     }}>Logout</Button> : 
-                                <Link id = "AppBar_Link" to="/login"><Button id = "AppBar_menuButton">Login</Button></Link>}
+                                <Link id = "AppBar_Link" to="/login"><Button id = "AppBar_menuButton">Login</Button></Link>
+                            }
                         </div>
                     </Toolbar>
                 </AppBar>

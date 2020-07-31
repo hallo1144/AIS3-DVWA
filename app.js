@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mysql = require("./api/tools/DbInstance");
+
 
 // var Counter = require('./api/tools/Counter');
 var session = require('express-session');

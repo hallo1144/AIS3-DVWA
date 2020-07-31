@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import { Home_page, Easter_egg, Login_page, Register_page, Profile_page, Message_page, Logout_page, ReShell_page, Null_page } from './Route';
+import { Home_page, Easter_egg, Login_page, Register_page, Profile_page, Message_page, Logout_page, Admin_page, ReShell_page, Null_page } from './Route';
 // 
 class App extends Component {
     render() {
@@ -16,6 +16,7 @@ class App extends Component {
                         <Route path="/message" exact component={Message_page} />
                         <Route path="/logout" exact component={Logout_page} />
                         <Route path="/reshell" exact component={ReShell_page} />
+                        <Route path="/admin" exact component={Admin_page} />
                         <Route path="*" component={Null_page} />
                     </Switch>
                 </div>

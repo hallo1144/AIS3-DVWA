@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = function(req, res){
+module.exports = function(req, res, next){
     f = path.join(__dirname, 'upload', req.params.filename)
     console.log('require ' + f)
     try{
@@ -9,8 +9,7 @@ module.exports = function(req, res){
             res.sendFile(f)
         }
         else{
-            res.status(404);
-            res.send('not found')
+            return next();
         }
     }
     catch(err){

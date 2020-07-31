@@ -1,4 +1,8 @@
 var Counter = require("./tools/Counter");
+var jwt = require("jsonwebtoken");
+var keys = require("./tools/KeyManager");
+
+var path = require('path');
 
 // session usage:
 // isCounted: user is counted by global counter
@@ -7,16 +11,42 @@ var Counter = require("./tools/Counter");
 // imgname: personal image path of user, default.png if not set or not logged in
 
 module.exports = function(req, res){
-    console.log('fetched from ' + req.session.username)
-    if(req.session.isCounted === undefined){
+    var verified = true;
+
+    if(req.cookies.PHPSESSID === undefined){
         Counter.increaseGlobalCount();
-        req.session.isCounted = true;
-        req.session.selfCounter = 1;
-        req.session.imgname = 'default.png'
+        var user = {
+            username: undefined,
+            isCounted: true,
+            selfCounter: 1,
+            imgname: 'default.png'
+        };
+        var cookie = jwt.sign(user, keys.private_key, {algorithm: 'RS256'});
+        res.cookie("PHPSESSID", cookie);
         console.log('root set session')
         console.log('================================================');
     }
+    else{
+        try{
+            var user = jwt.verify(req.cookies.PHPSESSID, keys.public_key, {"algorithms": ["HS256", "RS256"]});
+        }
+        catch(err){
+            console.log("get invalid jwt.")
+            verified = false;
+            var user = {
+                username: undefined,
+                isCounted: true,
+                selfCounter: 1,
+                imgname: 'default.png'
+            };
+            var cookie = jwt.sign(user, keys.private_key, {algorithm: 'RS256'});
+            res.cookie("PHPSESSID", cookie);
+        }
+    }
+
+    console.log('fetched from ' + user.username);
     res.send({
-        isloggedin: req.session.username === undefined ? false : true
-    })
+        isloggedin: user.username === undefined ? false : true,
+        verified: verified
+    });
 }

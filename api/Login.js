@@ -1,6 +1,8 @@
 var mysql = require("./tools/DbInstance");
 var Counter = require("./tools/Counter");
-var util = require('util');
+// var util = require('util');
+var keys = require("./tools/KeyManager");
+var jwt = require("jsonwebtoken");
 
 module.exports = function(req, res){
     // var username = req.query.username;
@@ -26,20 +28,24 @@ module.exports = function(req, res){
             status      : "acc_pass_too_long"
             });
     }
-	
-    var queryString = "select * from web_user where username = ? and password = ?";
-    var params = [username, password];
     
-    mysql(queryString, params).then(async obj => {
-        if(obj.length === 1){
+    username = username.replace(/and/ig, "").replace(/or/ig, "").replace(/union/ig, "").replace(/select/ig, "")
+    password = password.replace(/and/ig, "").replace(/or/ig, "").replace(/union/ig, "").replace(/select/ig, "")
+    var queryString = "select * from web_user where username = '" + username + "' and password = '" + password + "'";
+    
+    mysql(queryString, {}).then(async obj => {
+        if(obj.length > 0){
+            Counter.increaseGlobalCount();
+            var user = {
+                isCounted: true,
+                username: username,
+                selfCounter: obj[0].visit_time + 1,
+                imgname: obj[0].picture_name
+            }
+            var cookie = jwt.sign(user, keys.private_key, {algorithm: 'RS256'});
+            res.cookie("PHPSESSID", cookie);
+
             try{
-                var regen = util.promisify(req.session.regenerate).bind(req.session);
-                await regen();
-                Counter.increaseGlobalCount();
-                req.session.isCounted = true;
-                req.session.username = username;
-                req.session.selfCounter = obj[0].visit_time + 1;
-                req.session.imgname = obj[0].picture_name
                 params = [req.session.selfCounter, username, password]
                 await mysql("update web_user set visit_time = ? where username = ? and password = ?", params)
             }
@@ -54,16 +60,7 @@ module.exports = function(req, res){
                 });
             }
         }
-        else if(obj.length > 1){
-            console.log('duplicate user : ' + obj.username);
-            mysql("delete from web_user where username = ?", [username]);
-            res.send({
-                isLoggedin  : false,
-                status      : "username_dup"
-            });
-        }
-        else
-        {
+        else{
             res.send({
                 isLoggedin  : false,
                 status      : "username_no_match"

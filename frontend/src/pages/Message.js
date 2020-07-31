@@ -112,6 +112,7 @@ class Message extends Component{
             var message = this.state.message[i].message.split('\n');
             let messagehtml = [];
             for(var j = 0; j < message.length; j++){
+                // messagehtml.push(<label id="Messages_message_text">{message[j]}</label>);
                 let dangerXss = "<label id='Messages_message_text'>" + message[j] + "</label>";
                 messagehtml.push(<div dangerouslySetInnerHTML={{__html:dangerXss}}></div>);
                 if(j !== message.length - 1)

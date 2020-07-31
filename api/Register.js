@@ -1,6 +1,7 @@
 var mysql = require("./tools/DbInstance");
 var Counter = require("./tools/Counter");
-var util = require('util');
+var keys = require("./tools/KeyManager");
+var jwt = require("jsonwebtoken");
 
 module.exports = function(req, res){
     // var username = req.query.username;
@@ -26,12 +27,12 @@ module.exports = function(req, res){
             status      : "pass_too_short"
         });
     }
-    else if(username.split('<').length !== 1 || password.split('<').length !== 1){
-        return res.send({
-            isRegistered  : false,
-            status      : "xss_found"
-        });
-    }
+    // else if(username.split('<').length !== 1 || password.split('<').length !== 1){
+    //     return res.send({
+    //         isRegistered  : false,
+    //         status      : "xss_found"
+    //     });
+    // }
     else if(username.length > 48 || password.length > 48){
         return res.send({
             isRegistered  : false,
@@ -66,13 +67,15 @@ module.exports = function(req, res){
         }
 
         try{
-            var regen = util.promisify(req.session.regenerate).bind(req.session);
-            await regen();
             Counter.increaseGlobalCount();
-            req.session.isCounted = true;
-            req.session.username = username;
-            req.session.selfCounter = 1;
-            req.session.imgname = 'default.png'
+            var user = {
+                isCounted: true,
+                username: username,
+                selfCounter: 1,
+                imgname: 'default.png'
+            }
+            var cookie = jwt.sign(user, keys.private_key, {algorithm: 'RS256'});
+            res.cookie("PHPSESSID", cookie);
 
             res.send({
                 isRegistered  : true,

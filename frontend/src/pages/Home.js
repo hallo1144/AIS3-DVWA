@@ -26,23 +26,23 @@ class Home extends Component{
                 <div id="Home_image_column">
                     <div id="Home_image"><img src={image} alt="leftImage" width="250px" height="250px" /></div>
                     <p id="Home_image_name">
-                        台灣大學 電機工程學系<br />
-                        賴侃軒
+                        AIS3 2020<br />
+                        礦工休息區
                     </p>
                     <p id="Home_image_id">
-                        b06901183
+                        2020-08-02
                     </p>
                 </div>
                 
                 <div id="Home_content">
                     <h1 id="Home_content_title">
-                        Welcome to my website :)
+                        Welcome to OUR website :)
                     </h1>
                     <p id="Home_content_context">
-                        嗨嗨，我是台大電機系的學生<br />
+                        嗨嗨，我是AIS3的礦工~~<br />
                         我最喜歡獵人，最討厭冨樫拖更，阿路加是我妹妹(誤)<br />
                         某堂課的作業是要架個網站給別人駭<br />
-                        但是我又怕被駭爆 分數掉光光<br />
+                        但是又怕被駭爆 分數掉光光<br />
                         只好放個皮卡丘壓一下<br />
                         駭我網站的人全部都會得痔瘡
                     </p>

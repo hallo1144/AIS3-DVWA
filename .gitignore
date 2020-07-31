@@ -29,3 +29,5 @@ api/upload/*
 
 node_modules
 node_modules/*
+
+api/tools/temp.json

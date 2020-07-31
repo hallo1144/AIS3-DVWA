@@ -9,4 +9,4 @@ WORKDIR /usr/app/frontend
 RUN npm install
 RUN npm audit fix
 WORKDIR /usr/app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "merge"]

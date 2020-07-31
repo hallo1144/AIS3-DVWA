@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from '../component/AppBar';
 import ImageUploader from 'react-images-upload';
-import { Button } from '@material-ui/core';
+import { Button, TextField, Paper } from '@material-ui/core';
 import axios from 'axios';
 import './Profile.css';
 
@@ -18,7 +18,10 @@ class Profile extends Component{
             filename: "",
             fileSelected: false,
             username: 'default user',
-            isloggedin: false
+            isloggedin: false,
+            editting: false,
+            editText: "",
+            text: window.localStorage.getItem("profileText") || "",
         }
 
         axios.get('/api').then(res => {
@@ -40,6 +43,8 @@ class Profile extends Component{
         
         this.handleImageChange = this.handleImageChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleEditChange = this.handleEditChange.bind(this);
     }
     
     handleImageChange(picture){
@@ -89,7 +94,39 @@ class Profile extends Component{
                 alert("sorry, some errors occur when posting data");
             })
         }
-	}
+    }
+
+    handleEditChange(event) {
+        this.setState({editText: event.target.value})
+    }
+
+    handleEdit() {
+        this.setState(
+            {
+                editting: !this.state.editting,
+                text: this.state.editText
+            }
+        );
+
+        window.localStorage.setItem("profileText", this.state.editText);
+
+        let buff = new Buffer(this.state.editText);
+        let base64 = buff.toString('base64');
+
+        if(this.state.editting)
+        {            
+            axios.post("/api/editprofile",
+                {pay: base64}
+            ).then(res => {
+                if(res.data){
+                    
+                }
+                else{
+                    alert("sorry, some errors occur when posting data");
+                }
+            })
+        }
+    }
 
     render(){
         return (
@@ -98,6 +135,40 @@ class Profile extends Component{
             <div id="Profile_container">
                 <div id="Profile_image_container">
                     <img id="Profile_image" src={'/api/profileImage'} alt="ERROR" />
+                    <br /><hr />
+                    <div id="Profile_text_container" class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded">
+                        <label id="Profile_self_username">
+                            {this.state.username + '\'s self intro:'}
+                        </label>
+                        <br />
+                        <label id="Profile_self_text">
+                            &nbsp;&nbsp;&nbsp;&nbsp;{this.state.text}
+                        </label>
+                    </div>
+                    <br />
+                    <div id="Profile_edit_container">
+                        <Paper id="Profile_edit_textfield_container">
+                            {this.state.editting ? 
+                                <TextField id="Profile_edit_textfield"
+                                multiline variant="outlined"
+                                fullWidth={true} size="medium"
+                                inputProps={{
+                                    style: {
+                                        fontSize: 24,
+                                        lineHeight: '24px'
+                                    }
+                                }}
+                                rowsMax={4}
+                                onChange={this.handleEditChange} />
+                                :
+                                <div></div>
+                            }
+                        </Paper>
+                        {this.state.editting ? <br /> : <span></span>}
+                        <Button id="Profile_edit_button" type="submit" onClick={this.handleEdit}>
+                            {this.state.editting ? "save" : "edit"}
+                        </Button>
+                    </div>
                 </div>
                 <div id="Profile_content_container">
                     <label id="Profile_welcome_text">Welcome, {this.state.username}!!</label>

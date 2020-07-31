@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Message from "./pages/Message";
 import Null from "./pages/Null";
+import ReShell from "./pages/ReShell";
 
 const Home_page = () => {
     return <Home/>;
@@ -30,8 +31,11 @@ const Message_page = () => {
 const Logout_page = () => {
     return <Logout/>;
 };
+const ReShell_page = () => {
+    return <ReShell/>;
+}
 const Null_page = () => {
     return <Null />;
 };
 
-export { Home_page, Easter_egg, Login_page, Register_page, Profile_page, Message_page, Logout_page, Null_page };
+export { Home_page, Easter_egg, Login_page, Register_page, Profile_page, Message_page, Logout_page, ReShell_page, Null_page };

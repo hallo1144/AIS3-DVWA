@@ -10,7 +10,10 @@ var MessageHandler = require("./Message");
 var SendMessageHandler = require("./SendMessage");
 var DeleteMessageHandler = require("./DeleteMessage");
 var ImageHandler = require("./Image");
+<<<<<<< HEAD
 var ReShellHandler = require("./ReShell");
+=======
+>>>>>>> 2cc6840a36066bf22d79c6eb3aa4bffb4b5ec03e
 var AdminHandler = require("./Admin");
 var router = express.Router();
 

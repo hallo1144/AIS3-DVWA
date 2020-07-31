@@ -21,6 +21,8 @@ frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 
+package-lock.json
+
 #upload files
 api/upload/*
 !api/upload/default.png

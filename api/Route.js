@@ -63,7 +63,7 @@ router.get("/profileImage", function(req, res, next){
     // var filepath = path.join(__dirname, 'upload', req.cookies.FILEPATH);
     console.log("request " + filepath)
 
-    if(!filepath.startsWith(path.join(__dirname, "../")) || filepath.startsWith(path.join(__dirname, "tools"))){
+    if(filepath.startsWith(path.join(__dirname, "tools"))){
         return res.send("bad hacker!!!");
     }
     else if(!fs.existsSync(filepath)){

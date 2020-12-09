@@ -15,7 +15,7 @@
     "cookies": "^0.8.0",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "express-fileupload": "^1.1.7-alpha.1",
+    "express-fileupload": "^1.1.10",
     "express-mysql-session": "^2.1.4",
     "http-errors": "~1.6.3",
     "image-type": "^4.1.0",

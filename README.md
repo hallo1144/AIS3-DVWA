@@ -23,6 +23,20 @@ AIS3-DVWA/api/tools/DbOptions.json:
 }
 ```
 
+## modify session options
+```
+{
+    "key": "name of your session",
+    "secret": "session secret",
+    "resave": false,
+    "saveUninitialized": true,
+    "cookie": {
+		"httpOnly": true,
+        "maxAge": 3600000
+    }
+}
+```
+
 # ... or run in docker
 
 ```
